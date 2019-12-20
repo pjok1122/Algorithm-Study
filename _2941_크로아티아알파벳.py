@@ -10,19 +10,17 @@ for i in range(len(s)):
         if visited[i]:
             continue
 
-        temp = s[i] + s[i+1]  # 2글자씩 확인
+        # temp = s[i] + s[i+1]  # 2글자씩 확인
+        temp = s[i:i+2]
 
         if temp == "dz" and s[i+2] == "=":  # dz=는 세글자 이므로 특수한 경우임
             answer += 1
-            visited[i] = 1
-            visited[i+1] = 1
-            visited[i+2] = 1
+            visited[i:i+3]
             i += 2
 
         if temp in ["c=", "c-", "d-", "lj", "nj", "s=", "z="]:
             answer += 1
-            visited[i] = 1
-            visited[i+1] = 1
+            visited[i:i+2]
             i += 1
     except IndexError as identifier:
         pass
